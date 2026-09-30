@@ -60,3 +60,26 @@ export function createSubmission(tool_code, offset_um) {
     body: JSON.stringify({ tool_code, offset_um: Number(offset_um) }),
   });
 }
+
+export function fetchArchiveQueue() {
+  return request("/archive/queue");
+}
+
+export function fetchArchiveEntries() {
+  return request("/archive/entries");
+}
+
+export function fetchArchivePackages() {
+  return request("/archive/packages");
+}
+
+export function fetchArchivePackage(id) {
+  return request(`/archive/packages/${id}`);
+}
+
+export function signArchive(submission_id, reason) {
+  return request("/archive/sign", {
+    method: "POST",
+    body: JSON.stringify({ submission_id, reason: reason || "" }),
+  });
+}

@@ -13,7 +13,7 @@ body {
 }
 
 .page {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1.5rem;
 }
@@ -142,4 +142,70 @@ td {
 .fail {
   color: #b91c1c;
   font-weight: 600;
+}
+
+/* 冻结台 */
+.freeze-grid {
+  display: grid;
+  grid-template-columns: minmax(340px, 5fr) minmax(420px, 7fr);
+  gap: 0 1rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .freeze-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.freeze-right {
+  display: grid;
+  gap: 0;
+}
+
+.sign-cell {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.sign-cell input {
+  width: 9rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.sign-cell button {
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+}
+
+tr.drift td {
+  background: #fff7ed;
+}
+
+tr.pkg-open td {
+  background: #eff6ff;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.same {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge.drift {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.badge.gone {
+  background: #e5e7eb;
+  color: #4b5563;
 }
