@@ -60,3 +60,38 @@ export function createSubmission(tool_code, offset_um) {
     body: JSON.stringify({ tool_code, offset_um: Number(offset_um) }),
   });
 }
+
+// ---- 冻结归档台 ----
+export function fetchPackages() {
+  return request("/archive/packages");
+}
+
+export function fetchPackage(id) {
+  return request(`/archive/packages/${id}`);
+}
+
+export function createPackage(name) {
+  return request("/archive/packages", {
+    method: "POST",
+    body: JSON.stringify({ name }),
+  });
+}
+
+export function queueEntry(packageId, submissionId) {
+  return request(`/archive/packages/${packageId}/entries`, {
+    method: "POST",
+    body: JSON.stringify({ submission_id: submissionId }),
+  });
+}
+
+export function signEntry(entryId) {
+  return request(`/archive/entries/${entryId}/sign`, { method: "POST" });
+}
+
+export function removeEntry(entryId) {
+  return request(`/archive/entries/${entryId}`, { method: "DELETE" });
+}
+
+export function sealPackage(packageId) {
+  return request(`/archive/packages/${packageId}/seal`, { method: "POST" });
+}
